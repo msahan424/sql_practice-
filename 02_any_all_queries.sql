@@ -28,3 +28,10 @@ FROM Staff
 WHERE salary > ALL (SELECT salary 
                     FROM Staff 
                     WHERE branchNo = 'B007');
+--Questian 4 
+--Write an SQL query to find the fName, lName, and position of staff members whose salary is equal to ANY staff member whose position is 'Manager'.
+SELECT fName, lName, position 
+FROM Staff 
+WHERE salary = ANY (SELECT salary 
+                    FROM Staff 
+                    WHERE position = 'Manager');
