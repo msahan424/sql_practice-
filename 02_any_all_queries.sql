@@ -21,3 +21,10 @@ WHERE salary > ALL (SELECT salary
   AND salary < ANY (SELECT salary 
                     FROM Staff 
                     WHERE position = 'Manager');
+--Question 3 (ALL Pratiği):
+--Write an SQL query to find the fName, lName, and salary of staff members who earn more than EVERY staff member working at branch 'B007'.
+SELECT fName, lName, salary 
+FROM Staff 
+WHERE salary > ALL (SELECT salary 
+                    FROM Staff 
+                    WHERE branchNo = 'B007');
